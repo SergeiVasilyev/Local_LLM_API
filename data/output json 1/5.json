@@ -1,0 +1,53 @@
+{
+  "store": "Alte Ziegelei",
+  "date": "05.08.2021 um 13:53:30",
+  "items": [
+    {
+      "name": "Entrecôte",
+      "price": "47,00"
+    },
+    {
+      "name": "Mascarpone",
+      "price": "5,50"
+    },
+    {
+      "name": "Panna Cotta",
+      "price": "5,50"
+    },
+    {
+      "name": "Alkoholfrei Meißbacher 0,5l",
+      "price": "7,40"
+    },
+    {
+      "name": "Espresso",
+      "price": "2,30"
+    },
+    {
+      "name": "Espresso doppio",
+      "price": "3,50"
+    },
+    {
+      "name": "Erdbeer Spritz",
+      "price": "5,50"
+    },
+    {
+      "name": "Getränke divers",
+      "price": "7,00"
+    }
+  ],
+  "total": "83,70",
+  "ALV": [
+    {
+      "percentage": "A",
+      "without_alv": "25,70",
+      "with_alv": "4,10",
+      "total": "29,80"
+    },
+    {
+      "percentage": "B",
+      "without_alv": "58,00",
+      "with_alv": "3,79",
+      "total": "61,79"
+    }
+  ]
+}

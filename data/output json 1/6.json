@@ -1,0 +1,77 @@
+{
+  "store": "PUEBLO BAR",
+  "date": "31.05.2026 18:46",
+  "items": [
+    {
+      "name": "DELUXE MAITO",
+      "price": "13.00"
+    },
+    {
+      "name": "SUPER LIMSA",
+      "price": "14.00"
+    },
+    {
+      "name": "SUPER LIMSA",
+      "price": "14.00"
+    },
+    {
+      "name": "SUPER LIMSA",
+      "price": "14.00"
+    },
+    {
+      "name": "ERIKOINEN MEHU",
+      "price": "11.00"
+    },
+    {
+      "name": "NACHOS",
+      "price": "6.30"
+    },
+    {
+      "name": "TINGA 2",
+      "price": "10.00"
+    },
+    {
+      "name": "CHORIZO 2",
+      "price": "11.60"
+    },
+    {
+      "name": "ALAMBRE 2",
+      "price": "12.00"
+    },
+    {
+      "name": "BURRITO ALMBRE",
+      "price": "8.50"
+    },
+    {
+      "name": "HEDELMÄJUOMA",
+      "price": "8.50"
+    },
+    {
+      "name": "HEDELMÄJUOMA",
+      "price": "14.00"
+    },
+    {
+      "name": "DAIEENSA",
+      "price": "155.90"
+    },
+    {
+      "name": "KATEINEN",
+      "price": "155.90"
+    }
+  ],
+  "total": "418.70",
+  "ALV": [
+    {
+      "percentage": "24%",
+      "without_alv": "55.65",
+      "with_alv": "13.35",
+      "total": "69.00"
+    },
+    {
+      "percentage": "14%",
+      "without_alv": "76.23",
+      "with_alv": "10.57",
+      "total": "86.90"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "store": "<MARKUP.FI/>",
+  "date": "15.1.2020",
+  "items": [
+    {
+      "name": "Aurinkolasit",
+      "price": "19,90 €",
+      "ALV": "4,78 € (24 %)",
+      "Yhteensä": "24,68 €"
+    },
+    {
+      "name": "Posti",
+      "price": "5,00 €",
+      "ALV": "1,20 € (24 %)",
+      "Yhteensä": "6,20 €"
+    }
+  ],
+  "total": "30,88 €",
+  "ALV": [
+    {
+      "percentage": "24%",
+      "without_alv": "19.90 €",
+      "with_alv": "4.78 €",
+      "total": "24.68 €"
+    },
+    {
+      "percentage": "24%",
+      "without_alv": "5.00 €",
+      "with_alv": "1.20 €",
+      "total": "6.20 €"
+    }
+  ],
+  "ALV_total": "30,88 €"
+}

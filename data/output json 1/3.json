@@ -1,0 +1,25 @@
+{
+  "store": "KUITTI",
+  "date": "03.09.2018",
+  "items": [
+    {
+      "name": "Viivakoodinlukuja Laser",
+      "price": "59,95"
+    },
+    {
+      "name": "Mustesuihkutulostin",
+      "price": "119,95"
+    }
+  ],
+  "total": 240,
+  "ALV": [
+    {
+      "name": "Viivakoodinlukuja Laser",
+      "price": "59,95"
+    },
+    {
+      "name": "Mustesuihkutulostin",
+      "price": "119,95"
+    }
+  ]
+}

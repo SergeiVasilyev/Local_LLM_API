@@ -1,0 +1,33 @@
+{
+  "store": "Yhteensä",
+  "date": "23.11.2024 18:48:14",
+  "items": [
+    {
+      "name": "Coca-Cola",
+      "price": "5,50"
+    },
+    {
+      "name": "Resero Malbec 16cl",
+      "price": "12,00"
+    },
+    {
+      "name": "Alexin dexter naudaniha hampurilainen",
+      "price": "19,95"
+    }
+  ],
+  "total": "63,14",
+  "ALV": [
+    {
+      "percentage": "14,00%",
+      "without_alv": "39,82",
+      "with_alv": "15,74",
+      "total": "45,40"
+    },
+    {
+      "percentage": "25,50%",
+      "without_alv": "9,56",
+      "with_alv": "3,98",
+      "total": "13,54"
+    }
+  ]
+}
