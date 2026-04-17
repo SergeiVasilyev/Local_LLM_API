@@ -1,0 +1,29 @@
+{
+  "store": "",
+  "date": "15.1.2020",
+  "items": [
+    {
+      "name": "Aurinkolasit",
+      "price": "19,90 €"
+    },
+    {
+      "name": "Posti",
+      "price": "5,00 €"
+    }
+  ],
+  "total": "30,88 €",
+  "ALV": [
+    {
+      "percentage": "4,78 € (24 %)",
+      "without_alv": "4,78 €, (24 %)",
+      "with_alv": "4,78 € (24 %)",
+      "total": "5,98 €"
+    },
+    {
+      "percentage": "1,20 € (24 %)",
+      "without_alv": "1,20 €, (24 %)",
+      "with_alv": "1,20 € (24 %)",
+      "total": "6,20 €"
+    }
+  ]
+}

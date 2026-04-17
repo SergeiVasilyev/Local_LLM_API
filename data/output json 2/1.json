@@ -1,0 +1,29 @@
+{
+  "store": "",
+  "date": "23.11.2024",
+  "items": [
+    {
+      "name": "Coca-Cola",
+      "price": "5,50"
+    },
+    {
+      "name": "Resero Malbec 16cl",
+      "price": "12,00"
+    },
+    {
+      "name": "Alexin dexter naudaniha hampurilainen",
+      "price": "19,95"
+    }
+  ],
+  "total": "57,40",
+  "ALV": [
+    {
+      "rate": "14,00%",
+      "amount": "39,82"
+    },
+    {
+      "rate": "25,50%",
+      "amount": "9,56"
+    }
+  ]
+}
