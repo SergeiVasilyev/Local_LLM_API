@@ -1,4 +1,5 @@
 import requests
+import json
 from typing import Any, Dict, Optional
 
 
@@ -34,16 +35,27 @@ def lmstudio_generate(
         return response.json()
     except requests.exceptions.RequestException as exc:
         raise RuntimeError(
-            f"LMStudio request failed for {api_url}: {exc}. Проверьте, что LMStudio запущен и доступен на указанном порту."
+            f"LMStudio request failed for {api_url}: {exc}. Check your API URL and try again."
         ) from exc
 
 
 
 if __name__ == "__main__":
     # Example 1: Text-only request
-    sample_prompt = "Напиши короткое приветствие от имени локального LLM API."
+    sample_prompt = "Write a short greeting on behalf of the local LLM API."
+    sample_prompt = "Implement a python function that receives two IPv4 addresses, and returns the number of addresses between them (including the first one, excluding the last one)."
     try:
         result = lmstudio_generate(sample_prompt)
-        print("Text response:", result)
+        # print("Text response:", result)  # Print the full response
+        print(json.dumps(result, indent=2, ensure_ascii=False)) # Formated print
+        
+        # Extract content from the response
+        content = result.get("choices", [{}])[0].get("message", {}).get("content", "")
+        print("\nExtracted content:", content)
+
+        # Save result to .md file
+        with open("./results/result.md", "w") as file:
+            file.write(content)
+
     except RuntimeError as error:
         print("Text error:", error)
