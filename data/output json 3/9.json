@@ -1,0 +1,35 @@
+{
+  "store": "BILTEMMA",
+  "date": "03/04/2026 16:57",
+  "items": [
+    {
+      "name": "PROF ILOITU SIENI",
+      "price": "1 * 2.25"
+    },
+    {
+      "name": "TAVARATILALUKKU",
+      "price": "1 * 7.55"
+    },
+    {
+      "name": "IKKUNANPUHDOISTUSLINA.",
+      "price": "70 KPL"
+    },
+    {
+      "name": "SIVOULSINA SITUUNA 48-PAKK.",
+      "price": "1 * 4.95"
+    },
+    {
+      "name": "PANEL WIPE. 500 ML",
+      "price": "1 * 6.55"
+    },
+    {
+      "name": "MIKROKUTILIIINA.",
+      "price": "1 * 6.55"
+    },
+    {
+      "name": "DISPLAYPORT-KAPELI 8K. 3 M",
+      "price": "1 * 9.95"
+    }
+  ],
+  "total": "39.35"
+}

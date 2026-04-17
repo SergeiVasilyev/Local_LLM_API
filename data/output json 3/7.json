@@ -1,0 +1,47 @@
+{
+  "store": "K-Citymarket TURKU",
+  "date": "9.4.2026",
+  "items": [
+    {
+      "name": "Pikkka kevytmaito 11",
+      "price": "0,96"
+    },
+    {
+      "name": "K-Citymarket muovikassi 40L YM",
+      "price": "0,50"
+    },
+    {
+      "name": "Deliciest kanape limentit 400g",
+      "price": "4,33"
+    },
+    {
+      "name": "Deliciest pelmentit 400g 1hla",
+      "price": "3,18"
+    },
+    {
+      "name": "Pägen Pikkku Hönö 400g",
+      "price": "2,48"
+    },
+    {
+      "name": "PLUSSA-ETU",
+      "price": "0,49"
+    },
+    {
+      "name": "Atria rahkahkuainen bana 380g",
+      "price": "2,69"
+    },
+    {
+      "name": "PLUSSA-ETU",
+      "price": "0,70"
+    },
+    {
+      "name": "HK herkkumaksamakkara 150g",
+      "price": "1,84"
+    },
+    {
+      "name": "Philadelfia tuorejuusto 200g",
+      "price": "2,44"
+    }
+  ],
+  "total": "17,23"
+}

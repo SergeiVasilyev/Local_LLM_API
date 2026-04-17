@@ -1,0 +1,29 @@
+{
+  "store": "KAUPPA ESIMERKKI Oy",
+  "date": "2.1.2014",
+  "items": [
+    {
+      "name": "Tuotemerkki mehku 1 l app",
+      "price": "3.08"
+    },
+    {
+      "name": "Tuote tee 20ps vihr persik-pa",
+      "price": "1.75"
+    },
+    {
+      "name": "2 x 15,50 Make up luomivärit",
+      "price": "31.00"
+    }
+  ],
+  "total": "49.63",
+  "ALV": [
+    {
+      "rate": "24.00%",
+      "amount": "25.00"
+    },
+    {
+      "rate": "14.00%",
+      "amount": "4.24"
+    }
+  ]
+}
