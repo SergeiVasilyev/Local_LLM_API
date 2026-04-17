@@ -1,52 +1,45 @@
-Here’s an implementation:
+Hereâ€™s a simple implementation:
 
 ```python
-from typing import Optional
-
-
-def count_ips_between(a_str: str, b_str: str) -> int:
+def count_addresses(start_ip: str, end_ip: str) -> int:
     """
-    Convert two IPv4 address strings to their numeric representations.
-    Then compute the number of IP addresses between them (inclusive of start, exclusive of end).
-
-    Args:
-        a_str : First IPv4 address string.
-        b_str : Second IPv4 address string.
-
+    Returns the number of IPv4 addresses between start_ip and end_ip.
+    
+    Parameters:
+        start_ip  : First (inclusive) IPv4 address string
+        end_ip    : Second (exclusive) IPv4 address string
+    
     Returns:
-        int: Number of IPs between a and b (a <= ip < b).
+        Number of addresses in [start_ip, end_ip)
     """
-    # Validate that both inputs are strings
-    if not isinstance(a_str, str) or not isinstance(b_str, str):
-        raise ValueError("Both arguments must be IPv4 address strings.")
+    # Convert both strings to an IP object and subtract the second from the first
+    ip_obj1 = ip_address(start_ip)
+    ip_obj2 = ip_address(end_ip)
 
-    # Parse each string into an IP tuple
-    a = tuple(int(x) for x in re.split(r"\.\d+", a_str))
-    b = tuple(int(x) for x in re.split(r"\.\d+", b_str))
+    return (ip_obj1 - ip_obj2).total()  # number of addresses between them inclusive, exclusive of end
 
-    if not all(0 <= ip < 256 for ip in a):
-        raise ValueError("First IP address is invalid.")
-    if not all(0 <= ip < 256 for ip in b):
-        raise ValueError("Second IP address is invalid.")
 
-    # Compute number of IPs strictly between them
-    count = 0
-    left, right = a[0], a[-1]
-    right = min(right, 254)   # Ensure it's within [0, 254] for valid IPs
-    right = max(left + 1, right)
+def ip_address(ip_str: str) -> "IP":
+    """Simple IP address parser for IPv4."""
+    parts = ip_str.split(".")
+    if len(parts) != 4:
+        raise ValueError("Invalid IPv4 address format")
+    
+    try:
+        # Validate each octet is numeric, between 0 and 255
+        return IP(ip_parts=[int(p) for p in parts])
+    except (ValueError, OverflowError):
+        raise ValueError(f"Invalid IPv4 address: {ip_str}")
 
-    return (right - left) + 1
+
+def main():
+    start = "192.168.1.10"
+    end = "192.168.1.250"
+
+    count = count_addresses(start, end)
+    print(f"The number of addresses between '{start}' and '{end}' is: {count}")
+
+
+if __name__ == "__main__":
+    main()
 ```
-
-### Example usage:
-
-```python
-print(count_ips_between("192.168.1.1", "192.168.1.50"))   # 48
-print(count_ips_between("1.2.3.4", "1.2.3.5"))            # 1
-print(count_ips_between("255.255.255.255", "255.255.255.256"))   # 0 (no IPs between)
-```
-
-- `a_str` is the start IP,  
-- `b_str` is the end IP.  
-
-The function returns the count of IPv4 addresses strictly between them.

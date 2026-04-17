@@ -54,7 +54,7 @@ if __name__ == "__main__":
         print("\nExtracted content:", content)
 
         # Save result to .md file
-        with open("./results/result.md", "w") as file:
+        with open("./results/result.md", "w", encoding="utf-8") as file:
             file.write(content)
 
     except RuntimeError as error:
