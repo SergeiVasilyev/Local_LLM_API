@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 from typing import Optional, Dict, Any
 from promt import *
+from prompt_en import *
 
 
 def image_to_base64(image_path: str) -> str:
@@ -133,8 +134,8 @@ def save_result_to_file(result: Dict[str, Any], image_path: str) -> None:
 if __name__ == "__main__":
     # Example 2: Request with image
     # Adjust the image path and prompt as needed
-    image_path = "data/2.png"
-    prompt = prompt_ru_5
+    image_path = "data/5.jpg"
+    prompt = prompt_en_2
 
     # Set parameters for image processing, adjust as needed based on your hardware capabilities and desired output
     model = "qwen3.5-0.8b"
