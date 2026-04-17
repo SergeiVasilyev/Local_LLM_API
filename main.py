@@ -4,42 +4,7 @@ import json
 import re
 from pathlib import Path
 from typing import Optional, Dict, Any
-
-
-def lmstudio_generate(
-    prompt: str,
-    model: str = "qwen3.5-0.8b",
-    temperature: float = 0.7, # Controls the randomness of the output. Higher values (e.g., 0.8) make the output more random, while lower values (e.g., 0.2) make it more deterministic.
-    max_tokens: int = 2000, # Limits the maximum number of tokens in the generated output. This helps to control the length of the response and prevent excessively long outputs.
-    top_p: float = 0.95, # Controls the diversity of the output by limiting the token selection to a subset of tokens with a cumulative probability above a certain threshold. For example, top_p=0.9 means only the tokens that together account for 90% of the probability mass will be considered for generation.
-    stop: Optional[list[str]] = None, # A list of strings that, when generated, will cause the model to stop generating further tokens. This can be used to control the end of the response or to prevent certain outputs.
-    api_url: str = "http://127.0.0.1:1234/v1/chat/completions",
-    headers: Optional[Dict[str, str]] = None,
-    timeout: int = 10,
-    ) -> Dict[str, Any]:
-    
-    """Send a text generation request to LMStudio running locally."""
-    if headers is None:
-        headers = {"Content-Type": "application/json"}
-
-    payload = {
-        "model": model,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-        "top_p": top_p,
-    }
-    if stop is not None:
-        payload["stop"] = stop
-
-    try:
-        response = requests.post(api_url, json=payload, headers=headers, timeout=timeout)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as exc:
-        raise RuntimeError(
-            f"LMStudio request failed for {api_url}: {exc}. Проверьте, что LMStudio запущен и доступен на указанном порту."
-        ) from exc
+from promt import *
 
 
 def image_to_base64(image_path: str) -> str:
@@ -94,7 +59,7 @@ def lmstudio_generate_with_image(
     prompt: str,
     image_path: str,
     model: str = "qwen3.5-0.8b",
-    temperature: float = 0.7,
+    temperature: float = 0.2, # Controls the randomness of the output. Higher values (e.g., 0.8) make the output more random, while lower values (e.g., 0.2) make it more deterministic.
     max_tokens: int = 2000,
     top_p: float = 0.95,
     stop: Optional[list[str]] = None,
@@ -166,25 +131,25 @@ def save_result_to_file(result: Dict[str, Any], image_path: str) -> None:
 
 
 if __name__ == "__main__":
-    # Example 1: Text-only request
-    # sample_prompt = "Напиши короткое приветствие от имени локального LLM API."
-    # try:
-    #     result = lmstudio_generate(sample_prompt)
-    #     print("Text response:", result)
-    # except RuntimeError as error:
-    #     print("Text error:", error)
+    # Example 2: Request with image
+    # Adjust the image path and prompt as needed
+    image_path = "data/2.png"
+    prompt = prompt_ru_5
 
-    # Example 2: Request with image (uncomment to use)
-    image_path = "data/6.jpg"  # Path to image file
-    sample_prompt_with_image = "На картинке чек из магазина. Сделай распазнование текста и выведи результат в формате JSON, если не можешь распознать кокое-то поле, то оставь поле пустым. Выведи в формате JSON: {'store': '...', 'date': '...', 'items': [{'name': '...', 'price': '...'}, ...], 'total': '...', 'ALV': [{'percentage': '...', 'without_alv': '...', 'with_alv': '...', 'total': '...'}, ...]}"
-    # sample_prompt_with_image = "На картинке чек из магазина. Сделай распазнование текста и выведи результат в формате JSON: {'store': '...', 'date': '...', 'items': [{'name': '...', 'price': '...'}, ...], 'total': '...', 'ALV': []}"
-    # sample_prompt_with_image = "The image shows a receipt from a store. Perform text recognition and output the result in JSON format: {'store': '...', 'date': '...', 'items': [{'name': '...', 'price': '...'}, ...], 'total': '...', 'ALV': []}"
+    # Set parameters for image processing, adjust as needed based on your hardware capabilities and desired output
+    model = "qwen3.5-0.8b"
+    temperature = 0.3  # Lower temperature for more deterministic output, adjust as needed
+    top_p = 0.95 # Controls the diversity of the output by limiting the token selection to a subset of tokens with a cumulative probability above a certain threshold. For example, top_p=0.9 means only the tokens that together account for 90% of the probability mass will be considered for generation.
+    timeout = 280 # Increase if necessary
     try:
         # Increase timeout for image processing, adjust as needed based on your hardware capabilities
         response = lmstudio_generate_with_image(
-            sample_prompt_with_image, 
+            prompt, 
             image_path,
-            timeout=180  # Increase if necessary
+            model=model,
+            temperature=temperature,
+            top_p=top_p,
+            timeout=timeout,
         )
         print("Full response:", response)
         
