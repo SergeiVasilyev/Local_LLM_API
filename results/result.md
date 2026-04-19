@@ -1,45 +1,34 @@
-Here’s a simple implementation:
+Below is a simple implementation in Python that:
+
+- Takes two IPv4 strings as input.
+- Converts them to integer tuples for easy comparison.
+- Counts how many integers lie strictly between them (inclusive of the smaller, exclusive of the larger).
+- Returns that count.
+
+### Example usage
 
 ```python
-def count_addresses(start_ip: str, end_ip: str) -> int:
-    """
-    Returns the number of IPv4 addresses between start_ip and end_ip.
-    
-    Parameters:
-        start_ip  : First (inclusive) IPv4 address string
-        end_ip    : Second (exclusive) IPv4 address string
-    
-    Returns:
-        Number of addresses in [start_ip, end_ip)
-    """
-    # Convert both strings to an IP object and subtract the second from the first
-    ip_obj1 = ip_address(start_ip)
-    ip_obj2 = ip_address(end_ip)
+def count_addresses_between(ip1: str, ip2: str) -> int:
+    # Convert IPv4 strings to tuples for integer comparison
+    t1 = tuple(map(int, ip1.split(".")))
+    t2 = tuple(map(int, ip2.split(".")))
 
-    return (ip_obj1 - ip_obj2).total()  # number of addresses between them inclusive, exclusive of end
+    if t1 > t2:
+        return 0
+
+    # Number of integers strictly between (inclusive of smaller)
+    count = int(t1[-1]) - int(t2[0] + 1)
+    return count
 
 
-def ip_address(ip_str: str) -> "IP":
-    """Simple IP address parser for IPv4."""
-    parts = ip_str.split(".")
-    if len(parts) != 4:
-        raise ValueError("Invalid IPv4 address format")
-    
-    try:
-        # Validate each octet is numeric, between 0 and 255
-        return IP(ip_parts=[int(p) for p in parts])
-    except (ValueError, OverflowError):
-        raise ValueError(f"Invalid IPv4 address: {ip_str}")
-
-
-def main():
-    start = "192.168.1.10"
-    end = "192.168.1.250"
-
-    count = count_addresses(start, end)
-    print(f"The number of addresses between '{start}' and '{end}' is: {count}")
-
-
-if __name__ == "__main__":
-    main()
+# Example usage:
+print(count_addresses_between("192.168.1.1", "192.168.1.5"))   # Should be 3
 ```
+
+### Notes on correctness
+
+- The logic assumes both addresses are valid IPv4 ranges (no leading zeros, no repeated digits beyond one zero per octet).
+- If the input strings contain spaces or malformed IPs, the function will raise an error in that case.
+- This is O(1) because it only needs to look at the first and last parts of each IP string.
+
+If you need a more robust version (e.g., for any number of addresses), see my response below with an array-based implementation using `itertools`.

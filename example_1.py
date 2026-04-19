@@ -12,7 +12,7 @@ def lmstudio_generate(
     stop: Optional[list[str]] = None, # A list of strings that, when generated, will cause the model to stop generating further tokens. This can be used to control the end of the response or to prevent certain outputs.
     api_url: str = "http://127.0.0.1:1234/v1/chat/completions",
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 10,
+    timeout: int = 120,
     ) -> Dict[str, Any]:
     
     """Send a text generation request to LMStudio running locally."""
