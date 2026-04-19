@@ -158,6 +158,8 @@ if __name__ == "__main__":
         clean_json = extract_json_from_response(response)
         print("\nExtracted JSON:")
         print(json.dumps(clean_json, indent=2, ensure_ascii=False))
-        save_result_to_file(clean_json, image_path)
+
+        path = Path(image_path)
+        save_result_to_file(clean_json, f"./results/{path.name}")
     except (RuntimeError, FileNotFoundError, ValueError) as error:
         print("Error:", error)
